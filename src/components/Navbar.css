@@ -1,0 +1,26 @@
+.navList {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+nav > .navList > .navItem {
+
+}
+
+.navItem {
+  padding: 1em;
+  /*display: none;*/
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@media screen and (min-width: 900px) {
+  nav > .navList {
+    flex-flow: row;
+    align-items: flex-start;
+  }
+}
