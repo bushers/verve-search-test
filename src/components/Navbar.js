@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import NavItem from './NavItem';
 import './Navbar.css';
 
@@ -14,8 +15,7 @@ const Navbar = (props) => {
       return <NavItem key={item.key}
                       label={item.label}
                       content={item.content}
-                      toggleContent={props.toggleContent}
-                      showContent={props.showContent}>
+                      updateContent={props.updateContent}>
                {children(item.child)}
              </NavItem>
     });
@@ -31,3 +31,8 @@ const Navbar = (props) => {
 }
 
 export default Navbar;
+
+Navbar.propTypes = {
+  navData: PropTypes.array.isRequired,
+  updateContent: PropTypes.func.isRequired
+}

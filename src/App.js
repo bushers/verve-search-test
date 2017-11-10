@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
+import Content from './components/Content';
 import './App.css';
 
 class App extends Component {
   state = {
     navData: [],
-    showContent: false
+    content: 'Content goes here'
   }
 
   componentDidMount() {
@@ -19,10 +20,10 @@ class App extends Component {
       .catch(err => console.log(err.message))
   }
 
-  toggleContent = () => {
-    this.setState(prev => ({
-      showContent: !prev.showContent
-    }))
+  updateContent = (content) => {
+    if (content) {
+      this.setState({ content: content })
+    }
   }
 
   render() {
@@ -30,10 +31,10 @@ class App extends Component {
       <div className='container'>
         <header className='header'>
           <Navbar navData={this.state.navData}
-                  toggleContent={this.toggleContent}
-                  showContent={this.state.showContent}/>
+                  updateContent={this.updateContent}/>
         </header>
         <main>
+          <Content content={this.state.content} />
         </main>
       </div>
     );
