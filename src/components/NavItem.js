@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
-import './Navbar.css'
+import React from 'react';
+import './Navbar.css';
 
-class NavItem extends Component {
-  render() {
-    return (
-      <li className='navItem'>
-        {this.props.label}
-        {this.props.children}
-        <div>{this.props.content}</div>
-      </li>
-    )
-  }
+const NavItem = (props) => {
+  return (
+    <li className='navItem'
+        onClick={props.toggleContent}>
+      {props.label}
+      {props.children}
+      {props.showContent && (
+        <span className="content">{props.content}</span>
+      )}
+    </li>
+  )
 }
 
 export default NavItem;

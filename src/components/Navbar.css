@@ -1,26 +1,42 @@
-.navList {
+.navList, .parentContainer {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-nav > .navList > .navItem {
-
+  background: #000;
+  color: #fff;
 }
 
 .navItem {
-  padding: 1em;
-  /*display: none;*/
   cursor: pointer;
+  padding: 1em;
+  width: 100%;
+  background: #000;
+  color: #fff;
+}
+
+.navItem > ul {
+  display: none;
+}
+
+.navItem:hover > ul {
   display: flex;
   flex-flow: column nowrap;
 }
 
-@media screen and (min-width: 900px) {
-  nav > .navList {
+@media screen and (min-width: 840px) {
+  .parentContainer {
     flex-flow: row;
+    justify-content: space-around;
     align-items: flex-start;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
   }
+}
+
+.content {
+  background: #fff;
+  color: #000;
 }

@@ -1,32 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavItem from './NavItem';
 import './Navbar.css';
 
-class Navbar extends Component {
-  renderNavItems(data) {
+const Navbar = (props) => {
+
+  const renderNavItems = (data) => {
     const children = items => {
       if (items) {
-        return <ul className='navList'>{this.renderNavItems(items)}</ul>
+        return <ul>{renderNavItems(items)}</ul>
       }
     }
     return data.map((item, i) => {
       return <NavItem key={item.key}
                       label={item.label}
-                      content={item.content}>
+                      content={item.content}
+                      toggleContent={props.toggleContent}
+                      showContent={props.showContent}>
                {children(item.child)}
              </NavItem>
     });
   }
 
-  render() {
-    return (
-      <nav>
-        <ul className='navList'>
-          {this.renderNavItems(this.props.navData)}
-        </ul>
-      </nav>
-    )
-  }
+  return (
+    <nav>
+      <ul className='parentContainer'>
+        {renderNavItems(props.navData)}
+      </ul>
+    </nav>
+  )
 }
 
 export default Navbar;
