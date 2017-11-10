@@ -14,3 +14,13 @@ I spent roughly 3-4 hours on the test.
 
 
 ## Verve Search Test - Task Two
+
+1. Todo App Classes
+..* Task
+..* List
+
+2. Cinema Booking Classes
+..* Film
+..* Screen
+..* Booking
+..* Ticket
